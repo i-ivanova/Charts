@@ -74,21 +74,21 @@ Plotly.newPlot('myDiv', [data], layout);
 ```
 
 ##### Simple Line Chart
-![]()
+![](https://github.com/i-ivanova/Charts/blob/master/chart_plain.png)
 
 Other line graph variations and examples could be found [here](https://plot.ly/javascript/line-charts/)
 
 ## 3. Linear Gradient Colors Explained
 
-The file [historCharts.js](http://stgit.dcs.gla.ac.uk/tp3-2018-cs07/dashboard/blob/master/project_aurora/static/js/historyCharts.js) contains the supported color schemes in the variable `colormaps`. The function `addGrad` in the [historCharts.js](http://stgit.dcs.gla.ac.uk/tp3-2018-cs07/dashboard/blob/master/project_aurora/static/js/historyCharts.js) allows to smooth the transition between colors depending on the values. This allows to for better visualisation of the data.
+The file [Charts.js](https://github.com/i-ivanova/Charts/blob/master/Charts.js) contains the supported color schemes in the variable `colormaps`. The function `addGrad` in the [Charts.js](https://github.com/i-ivanova/Charts/blob/master/Charts.js) allows to smooth the transition between colors depending on the values. This allows to for better visualisation of the data.
 
 For each graph the line color and the fill color are computed dynamically depending on the thresholds we define and the color map we choose.
 
-Let's change the coloring of the [graph]().
+Let's change the coloring of the graph.
 
-Add the library `historyCharts.js` to the html `<head>` by adding the code snippet to the head.
+Add the library `Charts.js` to the html `<head>` by adding the code snippet to the head.
 ```html
-   <script src="historyCharts.js"></script>
+   <script src="Charts.js"></script>
 ```
 
 Then define the thresholds and choose the color map to be used in the `<script>` section. 
@@ -107,15 +107,15 @@ Then update the graph by calling the `updateGrad` function
    updateGrad(graphId);
 ```
 ##### Linear Gradient Colors Line Chart
-![]()
+![](https://github.com/i-ivanova/Charts/blob/master/chart_viridis.png)
 
 ## 4. How to Add New Color Maps
-We would highly recommend using this [website](http://angrytools.com/gradient/) to create your own linear gradient colors. You need to specify exactly __three__ colors that suit together. 
+I would highly recommend using this [website](http://angrytools.com/gradient/) to create your own linear gradient colors. You need to specify exactly __three__ colors that suit together. 
 *  The first color indicates when the sensor's values are very close to or below the lower limit (low)
 *  The second color indicates the desired state of the sensor's data (desired)
 *  The third color indicates when the sensor's values are very close to or above the upper limit (high)
 
-Then add this to the `colormap` variable in the [historCharts.js]() file as an array of 3 integers where each integer corresponds to the color channel RGB.
+Then add this to the `colormap` variable in the [Charts.js](https://github.com/i-ivanova/Charts/blob/master/Charts.js) file as an array of 3 integers where each integer corresponds to the color channel RGB.
 
 ```javascript
   'myColorMap' : {
@@ -132,4 +132,4 @@ Then follow the steps from the previous section
    updateGrad(graphId);
 ```
 ##### Result
-![]()
+![](https://github.com/i-ivanova/Charts/blob/master/chart_custom.png)
