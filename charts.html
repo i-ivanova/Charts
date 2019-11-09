@@ -1,0 +1,68 @@
+<html>
+ <head>
+    <!-- Import Plotly.js Library -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <!-- Import D3 -->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <!-- Import Custom Library -->
+    <script src="Charts.js"></script>
+
+ </head>
+
+ <body>
+   <!-- The div container for our graph, specify the id -->
+   <div id="myDiv"></div>
+
+ </body>
+
+ <script>
+  var xDataArray = [],
+      yDataArray = [];
+  for (i=0.0; i < 100; i++){
+     xDataArray.push(i)
+     yDataArray.push(20-i*Math.sin(i/4.0)/4.0)
+    }
+
+  var data = {
+      type: 'scatter',
+      x: xDataArray, // e.g. [1, 2, 3, 4]
+      y: yDataArray // e.g. [1, 2, 3, 4]
+   };
+
+  var data = {
+    type: 'scatter',
+    x: xDataArray,
+    y: yDataArray,
+    mode: 'lines',
+    line: {
+      color: 'rgb(55, 128, 191)', // line color
+      width: 3  // line width in pixels
+      },
+    fill: 'tozeroy' // fill the area underneath the graph
+  };
+
+  var layout = {
+    title: 'My Line Chart',
+    width: 500, // graph width in pixels
+    height: 300, // graph height in pixels
+    margin: {
+      t: 40, // top margin in pixels
+      l: 20, // left margin in pixels
+      r: 20, // right margin in pixels
+      b: 10 // bottom margin in pixels
+    }
+  };
+
+  Plotly.newPlot('myDiv', [data], layout);
+
+  var lowerThreshold = 15;
+  var upperThreshold = 23;
+  var colorMap = 'viridis'; // look at the supported colormaps
+
+  var graphId = 'myDiv'; // specify the graph for which linear gradient colors are added
+  addGrad(lowerThreshold, upperThreshold, xDataArray, yDataArray, graphId, colorMap);
+
+  updateGrad(graphId);
+
+ </script>
+</html>
